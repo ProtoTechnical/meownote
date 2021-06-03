@@ -80,7 +80,7 @@ export default function HomeScreen({logoutUser, ...props}) {
             <TextInput
                style={styles.input}
                placeholder='Add new entity'
-               placeholderTextColor="#aaaaa5"
+               placeholderTextColor="#aaaaaa"
                onChangeText={(text) => setEntityText(text)}
                value={entityText}
                underlineColorAndroid="transparent"
