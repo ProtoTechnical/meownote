@@ -1,10 +1,15 @@
-import 'react-native-gesture-handler';
+import 'react-native-gesture-handler'
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import 'react-native-gesture-handler';
+import styles from './src/screens/HomeScreen/styles'
+import { buttonTextStyle } from './src/screens/HomeScreen/homeScreenStyles'
 import { createStackNavigator } from '@react-navigation/stack'
 import { firebase } from './src/firebase/config'
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
 import { decode, encode } from 'base-64'
+import NotesScreen from './src/screens/NotesScreen'
 if (!global.btoa) { global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
@@ -21,8 +26,19 @@ export default function App() {
    //     <></>	
    //   )	
    // }
+   
+   const logout = () => {
+      firebase.auth().signOut()
+      logoutUser()
+   }
+	
+	const logoutButton = (
+		<TouchableOpacity style={styles.button} onPress={logout}>
+			<Text style={buttonTextStyle}>Logout</Text>
+		</TouchableOpacity>
+	)
 
-   useEffect(() => {
+      useEffect(() => {
       const usersRef = firebase.firestore().collection('users');
       firebase.auth().onAuthStateChanged(user => {
          if (user) {
@@ -42,17 +58,30 @@ export default function App() {
          }
       });
    }, []);
+   
 
    return (
       <NavigationContainer>
          <Stack.Navigator>
             {user ? (
-               <Stack.Screen name="Home">
-                  {props => <HomeScreen 
-                     logoutUser={logoutUser}
-                     {...props} 
-                     extraData={user} />}
-               </Stack.Screen>
+				<Stack.Screen 
+					name="Home"
+					options={{ 
+						headerTitle: props => logoutButton,
+						headerTitleAlign: 'center'
+					}} 
+				>
+						{props => 
+							<NotesScreen user={user}/>
+						}
+						{/*
+						<HomeScreen 
+							logoutUser={logoutUser}
+							{...props} 
+							extraData={user} 
+						/>
+						*/}
+				</Stack.Screen>
             ) : (
                <>
                   <Stack.Screen name="Login" component={LoginScreen} />

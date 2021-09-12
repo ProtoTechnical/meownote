@@ -1,0 +1,29 @@
+<NotepadPlus>
+    <Project name="Meownote">
+        <Folder name="firebase">
+            <File name="src\firebase\config.js" />
+        </Folder>
+        <Folder name="screens">
+            <Folder name="HomeScreen">
+                <File name="src\screens\HomeScreen\HomeScreen.js" />
+                <File name="src\screens\HomeScreen\homeScreenStyles.js" />
+                <File name="src\screens\HomeScreen\styles.js" />
+            </Folder>
+            <Folder name="LoginScreen">
+                <File name="src\screens\LoginScreen\LoginScreen.js" />
+                <File name="src\screens\LoginScreen\styles.js" />
+            </Folder>
+            <Folder name="RegistrationScreen">
+                <File name="src\screens\RegistrationScreen\RegistrationScreen.js" />
+                <File name="src\screens\RegistrationScreen\styles.js" />
+            </Folder>
+            <File name="src\screens\index.js" />
+            <File name="src\screens\styles.js" />
+            <Folder name="NotesScreen">
+                <File name="src\screens\NotesScreen\index.js" />
+                <File name="src\screens\NotesScreen\NotesScreen.js" />
+                <File name="src\screens\NotesScreen\notesScreenStyles.js" />
+            </Folder>
+        </Folder>
+    </Project>
+</NotepadPlus>

@@ -17,16 +17,17 @@
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
     "firebase": "^8.6.2",
+    "joi": "^17.4.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "16.13.1",
-    "react-native": "^0.64.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.0.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "^0.16.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

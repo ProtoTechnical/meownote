@@ -10,6 +10,7 @@ export default function HomeScreen({logoutUser, ...props}) {
 
    const entityRef = firebase.firestore().collection('entities')
    const userID = props.extraData.id
+   
 
    useEffect(() => {
       const unsubscribe = entityRef
@@ -55,7 +56,6 @@ export default function HomeScreen({logoutUser, ...props}) {
             });
       }
    }
-
    const logout = () => {
       firebase.auth().signOut()
       logoutUser()
@@ -73,9 +73,6 @@ export default function HomeScreen({logoutUser, ...props}) {
 
    return (
       <View style={styles.container}>
-         <TouchableOpacity style={styles.button} onPress={logout}>
-            <Text style={buttonTextStyle}>Logout</Text>
-         </TouchableOpacity>
          <View style={styles.formContainer}>
             <TextInput
                style={styles.input}
